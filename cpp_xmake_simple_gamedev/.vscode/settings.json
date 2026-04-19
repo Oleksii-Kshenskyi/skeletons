@@ -1,0 +1,24 @@
+{
+  // Disable Microsoft C/C++ IntelliSense — clangd handles all of it.
+  // These settings are harmless if you never install the ms-vscode.cpptools
+  // extension, but they're critical if it sneaks in as a dependency.
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "C_Cpp.autocomplete": "disabled",
+  "C_Cpp.errorSquiggles": "disabled",
+
+  "clangd.arguments": [
+    "--background-index",
+    "--clang-tidy",
+    "--header-insertion=iwyu",
+    "--completion-style=detailed",
+    "--function-arg-placeholders=true"
+  ],
+
+  "files.associations": {
+    "*.tpp": "cpp",
+    "*.ipp": "cpp"
+  },
+
+  // Use CodeLLDB (F5) for debugging, not xmake's console debugger.
+  "xmake.debugConfigType": "codelldb"
+}

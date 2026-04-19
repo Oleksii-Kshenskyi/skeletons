@@ -1,0 +1,25 @@
+debug
+target
+build/
+
+
+**/*.rs.bk
+
+# MSVC Windows builds of rustc generate these, which store debugging information
+*.pdb
+
+**/mutants.out*/
+
+*.lock
+
+/target
+
+.xmake/
+compile_commands.json
+ 
+# clangd index cache
+.cache/
+ 
+# OS / editor
+.DS_Store
+*.swp

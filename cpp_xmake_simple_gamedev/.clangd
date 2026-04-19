@@ -1,0 +1,17 @@
+# Points clangd at the compile_commands.json that xmake generates.
+# The after_build hook in xmake.lua writes it to the project root,
+# so this stays simple.
+CompileFlags:
+  CompilationDatabase: .
+
+Diagnostics:
+  UnusedIncludes: Strict
+  ClangTidy:
+    Add:
+      - modernize-*
+      - performance-*
+      - readability-*
+      - bugprone-*
+    Remove:
+      - modernize-use-trailing-return-type
+      - readability-identifier-length

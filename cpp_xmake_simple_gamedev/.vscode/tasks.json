@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "xmake: configure (debug)",
+      "type": "shell",
+      "command": "xmake f -m debug -y",
+      "problemMatcher": []
+    },
+    {
+      "label": "xmake: configure (release)",
+      "type": "shell",
+      "command": "xmake f -m release -y",
+      "problemMatcher": []
+    },
+    {
+      "label": "xmake: build",
+      "type": "shell",
+      "command": "xmake -y",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "xmake: clean",
+      "type": "shell",
+      "command": "xmake clean",
+      "problemMatcher": []
+    },
+    {
+      "label": "xmake: run",
+      "type": "shell",
+      "command": "xmake run mygame",
+      "problemMatcher": []
+    }
+  ]
+}
