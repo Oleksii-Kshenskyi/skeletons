@@ -14,6 +14,10 @@ add_cxflags("-Wno-unused-parameter", {tools = {"clang", "gcc"}})
 -- Build modes: `xmake f -m debug` or `xmake f -m release`
 add_rules("mode.debug", "mode.release")
 
+-- Auto-regenerate compile_commands.json at the project root after each build
+-- so clangd always has up-to-date include paths.
+add_rules("plugin.compile_commands.autoupdate", {outputdir = "."})
+
 -- Dependencies. xmake will fetch and build these on first configure.
 add_requires("raylib 5.5.x", {configs = {shared = false}})
 add_requires("entt 3.14.x")
@@ -28,10 +32,3 @@ target("mygame")
     if is_plat("macosx") then
         add_frameworks("Cocoa", "IOKit", "CoreVideo", "OpenGL")
     end
-
-    -- Regenerate compile_commands.json into the project root so clangd
-    -- always sees current flags.
-    -- NOTE: we use the built-in rule instead of shelling out to
-    -- `xmake project -k compile_commands` in after_build, because that
-    -- spawns a child xmake that deadlocks on the project lock.
-    add_rules("plugin.compile_commands.autoupdate", {outputdir = "."})
