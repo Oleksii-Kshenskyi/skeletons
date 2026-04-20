@@ -20,5 +20,10 @@
   },
 
   // Use CodeLLDB (F5) for debugging, not xmake's console debugger.
-  "xmake.debugConfigType": "codelldb"
+  "xmake.debugConfigType": "codelldb",
+
+  // Make the xmake-vscode plugin write compile_commands.json to the project
+  // root so it stays consistent with the CLI rule in xmake.lua and clangd
+  // picks it up via .clangd's CompilationDatabase setting.
+  "xmake.compileCommandsDirectory": "${workspaceFolder}"
 }
